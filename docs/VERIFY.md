@@ -9,8 +9,9 @@
   从目录名解析出语义约束，再用文件**原始属性**直接比对：
   - `jpg/` → 要求 `file.suffix.lower() == ".jpg"`；
   - `no_extension/` 要求 `Path(file).suffix == ""`；
+  - `lt1MB/` → 要求 `st_size < 1MB`；
   - `1MB-10MB/` → 要求 `1MB <= st_size < 10MB`（左闭右开）；
-  - `>=100MB/` 要求 `st_size >= 100MB`；
+  - `ge10MB/` → 要求 `st_size >= 10MB`；
   - `2026/` 要求 ytime 落在2026
   - `2026-10/` → 要求 ytime落在2026且mtime 落在10月
   - `2026-10-2/` 要求 ytime落在2026且mtime 落在10月且dtime落在2。
